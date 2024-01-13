@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/diaryFragment">
+
+    <fragment
+        android:id="@+id/diaryFragment"
+        android:name="com.darf.diary.presentation.DiaryFragment"
+        android:label="fragment_diary"
+        tools:layout="@layout/fragment_diary" >
+        <action
+            android:id="@+id/action_diaryFragment_to_eventDetail"
+            app:destination="@id/eventDetail"
+            app:popUpTo="@id/diaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventDetail"
+        android:name="com.darf.diary.presentation.EventDetailFragment"
+        android:label="fragment_event_detail"
+        tools:layout="@layout/fragment_event_detail" >
+        <argument
+            android:name="eventHour"
+            app:argType="com.darf.diary.domain.model.HourEvent" />
+    </fragment>
+</navigation>

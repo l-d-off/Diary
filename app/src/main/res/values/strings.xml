@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Diary</string>
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
+    <string name="january_2024">January 2024</string>
+    <string name="dayOfWeek">Monday</string>
+    <string name="date">Дата:</string>
+    <string name="timeStart">Время начала:</string>
+    <string name="timeEnd">Время окончания:</string>
+    <string name="description">Описание:</string>
+</resources>
