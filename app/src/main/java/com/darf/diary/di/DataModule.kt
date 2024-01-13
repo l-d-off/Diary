@@ -17,13 +17,11 @@ interface DataModule {
 
     companion object {
         @Provides
-        @ApplicationScope
         fun provideEventDao(application: Application): EventDao {
             return AppDatabase.getInstance(application).eventDao()
         }
 
         @Provides
-        @ApplicationScope
         fun provideApiService (): ApiService {
             return ApiService
         }
