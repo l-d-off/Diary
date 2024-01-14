@@ -9,4 +9,11 @@
     <string name="timeEnd">Время окончания:</string>
     <string name="description">Описание:</string>
     <string name="new_event">New Event</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name:</string>
+    <string name="dateofnewevent">Date</string>
+    <string name="timeofnewevent">Time</string>
+    <string name="event_name">Event name</string>
+    <string name="event_description">Description</string>
+    <string name="save">Save</string>
 </resources>

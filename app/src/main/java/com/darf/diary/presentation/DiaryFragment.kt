@@ -39,7 +39,11 @@ class DiaryFragment : Fragment() {
         super.onAttach(context)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentDiaryBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -59,6 +63,9 @@ class DiaryFragment : Fragment() {
                 CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusDays(1)
                 setDayView(adapter, CalendarUtils.selectedDate.toString())
             }
+            newEventBtn.setOnClickListener {
+                launchEditEventFragment()
+            }
         }
         adapter.onEventInfoClickListener = {
             launchEventDetailFragment(it)
@@ -70,7 +77,8 @@ class DiaryFragment : Fragment() {
         val dateFinish = CalendarUtils.dateToMillis(date, LocalTime.MAX)
 
         binding.monthDayText.text = CalendarUtils.monthDayFromDate(CalendarUtils.selectedDate)
-        val dayOfWeek = CalendarUtils.selectedDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
+        val dayOfWeek =
+            CalendarUtils.selectedDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
         binding.dayOfWeekTV.text = dayOfWeek
 
         lifecycleScope.launch {
@@ -82,6 +90,14 @@ class DiaryFragment : Fragment() {
     }
 
     private fun launchEventDetailFragment(hourEvent: HourEvent) {
-        findNavController().navigate(DiaryFragmentDirections.actionDiaryFragmentToEventDetail(hourEvent))
+        findNavController().navigate(
+            DiaryFragmentDirections.actionDiaryFragmentToEventDetail(
+                hourEvent
+            )
+        )
+    }
+
+    private fun launchEditEventFragment() {
+        findNavController().navigate(DiaryFragmentDirections.actionDiaryFragmentToEditEventFragment())
     }
 }
