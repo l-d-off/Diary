@@ -61,7 +61,7 @@ class EditEventFragment : Fragment() {
                 CoroutineScope(Dispatchers.IO).launch {
                     viewModel.saveNewEvent(event)
                 }
-                findNavController().navigate(EditEventFragmentDirections.actionEditEventFragmentToScheduleFragment())
+                findNavController().navigate(EditEventFragmentDirections.actionEditEventFragmentToDiaryFragment())
             }
         }
     }
