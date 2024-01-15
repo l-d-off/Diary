@@ -5,6 +5,7 @@ import com.darf.diary.data.database.EventDao
 import com.darf.diary.data.mapper.EventMapper
 import com.darf.diary.data.network.ApiService
 import com.darf.diary.domain.EventRepository
+import com.darf.diary.domain.model.Event
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,5 +30,9 @@ class EventRepositoryImpl @Inject constructor(
         scope.launch {
             eventDao.insertEvent(mapper.mapDtoToDbModel(event))
         }
+    }
+
+    override suspend fun saveNewEvent(event: Event) {
+        eventDao.insertEvent(mapper.mapEntityToDbModel(event))
     }
 }

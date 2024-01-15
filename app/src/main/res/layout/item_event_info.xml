@@ -4,52 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
+    android:layout_margin="16dp"
+    android:background="@drawable/item_event_info_background"
+    android:orientation="vertical"
     app:cardUseCompatPadding="true">
 
     <TextView
-        android:id="@+id/tvTime"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvEventName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@drawable/item_event_name_background"
+        android:gravity="center"
         android:padding="16dp"
+        android:textColor="@color/white"
         android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="Event" />
+
+    <TextView
+        android:id="@+id/tvEventDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="8dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        tools:text="Event description" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="2dp"
+        android:background="#e2e2e2"
+        app:layout_constraintTop_toBottomOf="@id/tvEventDescription" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@drawable/item_event_time_background"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="10:00" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvEventName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_orange_light"
-            android:gravity="center"
-            android:padding="16dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:text="Event" />
-
-        <TextView
-            android:id="@+id/tvEventDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="14sp"
-            tools:text="Event description" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="#63000000"
-            app:layout_constraintTop_toBottomOf="@id/tvEventDescription" />
-
-    </LinearLayout>
-
 
 </LinearLayout>

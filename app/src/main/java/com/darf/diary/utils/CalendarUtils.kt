@@ -19,6 +19,11 @@ class CalendarUtils {
             return date.format(formatter)
         }
 
+        fun formattedFullDate(date: LocalDate): String? {
+            val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy")
+            return date.format(formatter)
+        }
+
         fun dateToMillis(date: String, time: LocalTime): Long {
             val l = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
             return when (time) {

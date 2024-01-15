@@ -7,6 +7,9 @@ import java.sql.Date
 import java.sql.Time
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.Locale
 import java.util.TimeZone
 import javax.inject.Inject
@@ -30,9 +33,29 @@ class EventMapper @Inject constructor() {
         description = db.description
     )
 
+    fun mapEntityToDbModel(event: Event): EventDbModel {
+        val dateStart = event.dateStart
+        val timeStart = event.timeStart
+        val dateTime = "$dateStart $timeStart"
+        return EventDbModel(
+            id = 0,
+            dateStart = convertLocalDateTimeToTimestamp(dateTime),
+            dateFinish = convertLocalDateTimeToTimestamp(dateTime) + SECONDS_IN_HOUR,
+            name = event.name,
+            description = event.description
+        )
+    }
+
+    private fun convertLocalDateTimeToTimestamp(date: String): Long {
+        val pattern = "yyyy-MM-dd HH:mm"
+        val dateFormatter = DateTimeFormatter.ofPattern(pattern)
+        val ldt = LocalDateTime.parse(date, dateFormatter)
+        return ldt.toEpochSecond(ZoneOffset.of(OFFSET))
+    }
+
     private fun convertTimestampToDate(timestamp: Long?): String {
         if (timestamp == null) return ""
-        val stamp = Timestamp(timestamp * 1000)
+        val stamp = Timestamp(timestamp * KOEF)
         val date = Date(stamp.time)
         val pattern = "dd/MM/yyyy"
         val sdf = SimpleDateFormat(pattern, Locale.getDefault())
@@ -42,11 +65,17 @@ class EventMapper @Inject constructor() {
 
     private fun convertTimestampToTime(timestamp: Long?): String {
         if (timestamp == null) return ""
-        val stamp = Timestamp(timestamp * 1000)
+        val stamp = Timestamp(timestamp * KOEF)
         val time = Time(stamp.time)
         val pattern = "HH:mm"
         val sdf = SimpleDateFormat(pattern, Locale.getDefault())
         sdf.timeZone = TimeZone.getDefault()
         return sdf.format(time)
+    }
+
+    companion object {
+        private const val OFFSET = "+03:00"
+        private const val KOEF = 1000
+        private const val SECONDS_IN_HOUR = 3600
     }
 }

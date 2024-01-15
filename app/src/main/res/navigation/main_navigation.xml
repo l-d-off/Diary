@@ -9,19 +9,33 @@
         android:id="@+id/diaryFragment"
         android:name="com.darf.diary.presentation.DiaryFragment"
         android:label="fragment_diary"
-        tools:layout="@layout/fragment_diary" >
+        tools:layout="@layout/fragment_diary">
         <action
             android:id="@+id/action_diaryFragment_to_eventDetail"
             app:destination="@id/eventDetail"
+            app:popUpTo="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_diaryFragment_to_editEventFragment"
+            app:destination="@id/editEventFragment"
             app:popUpTo="@id/diaryFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventDetail"
         android:name="com.darf.diary.presentation.EventDetailFragment"
         android:label="fragment_event_detail"
-        tools:layout="@layout/fragment_event_detail" >
+        tools:layout="@layout/fragment_event_detail">
         <argument
             android:name="eventHour"
             app:argType="com.darf.diary.domain.model.HourEvent" />
+    </fragment>
+    <fragment
+        android:id="@+id/editEventFragment"
+        android:name="com.darf.diary.presentation.EditEventFragment"
+        android:label="fragment_edit_event"
+        tools:layout="@layout/fragment_edit_event" >
+        <action
+            android:id="@+id/action_editEventFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment"
+            app:popUpTo="@id/diaryFragment" />
     </fragment>
 </navigation>
