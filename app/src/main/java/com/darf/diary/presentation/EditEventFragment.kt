@@ -50,7 +50,7 @@ class EditEventFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this, viewModelFactory)[EventViewModel::class.java]
         val dateStart = CalendarUtils.selectedDate.toString()
-        val timeStart = LocalTime.of(LocalTime.now().hour, 0).toString()
+        val timeStart = LocalTime.of(LocalTime.now().hour, LocalTime.now().minute).toString()
         with(binding) {
             eventDateTV.text = dateStart
             eventTimeTV.text = timeStart

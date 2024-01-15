@@ -2,13 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="16dp"
+    android:layout_marginHorizontal="16dp"
+    android:background="@drawable/item_event_info_background"
     android:orientation="vertical"
+    android:padding="24dp"
     tools:context=".presentation.DiaryActivity">
 
     <EditText
         android:id="@+id/eventNameET"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:ems="10"
@@ -18,9 +23,10 @@
 
     <EditText
         android:id="@+id/eventDescriptionET"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/event_description"
         android:inputType="text"
@@ -31,8 +37,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="@string/dateofnewevent"
+        android:layout_marginTop="16dp"
+        android:text="@string/date_of_new_event"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp" />
@@ -42,8 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="@string/timeofnewevent"
+        android:layout_marginTop="16dp"
+        android:text="@string/time_of_new_event"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp" />
@@ -53,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         android:text="@string/save"
         android:textColor="@android:color/holo_orange_light"

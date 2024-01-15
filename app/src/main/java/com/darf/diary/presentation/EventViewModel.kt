@@ -31,19 +31,14 @@ class EventViewModel @Inject constructor(
     suspend fun getEventsByDateStart(dateStart: Long, dateFinish: Long): LiveData<List<HourEvent>> {
         val events = loadEventsByDateStart(dateStart, dateFinish)
         val hourEvents = mutableListOf<HourEvent>()
-        var isAdded = false
         for (hour in 0 until 24) {
+            hourEvents.add(HourEvent(LocalTime.of(hour, 0), null))
             events.forEach {
-                val hourStart = LocalTime.parse(it.timeStart).hour
-                if (hour == hourStart) {
-                    hourEvents.add(HourEvent(LocalTime.of(hour, 0), it))
-                    isAdded = true
+                val timeStart = LocalTime.parse(it.timeStart)
+                if (hour == timeStart.hour) {
+                    hourEvents.add(HourEvent(LocalTime.of(hour, timeStart.minute), it))
                 }
             }
-            if (!isAdded) {
-                hourEvents.add(HourEvent(LocalTime.of(hour, 0), null))
-            }
-            isAdded = false
         }
         _timeTable.postValue(hourEvents)
         return timeTable

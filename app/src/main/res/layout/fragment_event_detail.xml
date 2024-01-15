@@ -8,28 +8,30 @@
 
     <TextView
         android:id="@+id/tvDetailEventName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
         android:textColor="@android:color/holo_purple"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="338dp"
         tools:text="Дело" />
-
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        app:cardCornerRadius="32dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintTop_toBottomOf="@id/tvDetailEventName">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
+            android:background="@drawable/item_event_info_background"
+            android:padding="16dp">
 
             <TextView
                 android:id="@+id/tvEventDateLabel"
@@ -68,7 +70,7 @@
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@string/timeStart"
+                android:text="@string/time_start"
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +95,7 @@
                 android:layout_marginTop="16dp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@string/timeEnd"
+                android:text="@string/time_end"
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"

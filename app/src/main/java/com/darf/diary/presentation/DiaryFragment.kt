@@ -76,7 +76,7 @@ class DiaryFragment : Fragment() {
         val dateStart = CalendarUtils.dateToMillis(date, LocalTime.MIDNIGHT)
         val dateFinish = CalendarUtils.dateToMillis(date, LocalTime.MAX)
 
-        binding.monthDayText.text = CalendarUtils.monthDayFromDate(CalendarUtils.selectedDate)
+        binding.fullDateText.text = CalendarUtils.formattedFullDate(CalendarUtils.selectedDate)
         val dayOfWeek =
             CalendarUtils.selectedDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
         binding.dayOfWeekTV.text = dayOfWeek
